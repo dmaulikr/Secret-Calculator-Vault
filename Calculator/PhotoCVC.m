@@ -7,7 +7,6 @@
 //
 
 #import "PhotoCVC.h"
-#import "PhotoCVCell.h"
 #import "ViewPhotoVC.h"
 #import <AssetsLibrary/AssetsLibrary.h>
 
