@@ -9,43 +9,55 @@
 #import "AppDelegate.h"
 #import "CalculatorVC.h"
 #import "NumericalVC.h"
-#import "Settings.h"
+#import "PatternVC.h"
+#import "AlphabeticalVC.h"
+#import "SettingsManager.h"
 
 @interface AppDelegate ()
-@property (strong, nonatomic) Settings *settings;
 @end
 
 @implementation AppDelegate
 static int i = 0;
 
--(Settings *)settings
-{
-    if(!_settings) _settings = [[Settings alloc] init];
-    return _settings;
-}
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [self.settings retrievePassword];
-    [self.settings retrieveCurrentLock];
-
-    NSLog(@"CurrentPassword = %@", self.settings.userPassword);
-    NSLog(@"CurrentLock = %@", self.settings.currentLock);
-    NSLog(@"isPassCreated = %d", self.settings.isPasswordCreated);
-
     self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
-    
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    
     UIViewController *viewController = [[UIViewController alloc] init];
-    
-    if([self.settings.currentLock isEqualToString:@"none"]){
-        viewController = [storyboard instantiateViewControllerWithIdentifier:@"none"];
+    lockTypes = [SettingsManager sharedManager].currentLock;
+    switch (lockTypes)
+    {
+        case calculatorLock:
+        {
+            viewController = [storyboard instantiateViewControllerWithIdentifier:@"calculatorLock"];
+            break;
+        }
+            
+        case alphabeticalLock:
+        {
+            viewController = [storyboard instantiateViewControllerWithIdentifier:@"alphabeticalLock"];
+            break;
+        }
+            
+        case numericalLock:
+        {
+            viewController = [storyboard instantiateViewControllerWithIdentifier:@"numericalLock"];
+            break;
+        }
+            
+        case patternLock:
+        {
+            viewController = [storyboard instantiateViewControllerWithIdentifier:@"patternLock"];
+            break;
+        }
+            
+        case none:
+        {
+            viewController = [storyboard instantiateViewControllerWithIdentifier:@"none"];
+            break;
+        }
+
     }
-    else {
-    viewController = [storyboard instantiateViewControllerWithIdentifier:self.settings.currentLock];
-    }
-    
     self.window.rootViewController = viewController;
     [self.window makeKeyAndVisible];
     return YES;
@@ -103,6 +115,15 @@ static int i = 0;
     i++;
     NSLog(@"%d", i++);
 }
+    
+enum lockTypes
+{
+    calculatorLock = 0,
+    alphabeticalLock,
+    numericalLock,
+    patternLock,
+    none
+}lockTypes;
 
 #pragma mark - Core Data stack
 

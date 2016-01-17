@@ -7,8 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Settings.h"
+@class CalculatorVC;
+@class NumericalVC;
+@class AlphabeticalVC;
+@class PatternVC;
 
 @interface SecurityVC : UIViewController
+
+@property (weak, nonatomic) IBOutlet UISwitch *breakInSwitch;
+@property (weak, nonatomic) IBOutlet UIImageView *alphabeticalCheck;
+@property (weak, nonatomic) IBOutlet UIImageView *numericalCheck;
+@property (weak, nonatomic) IBOutlet UIImageView *patternCheck;
+@property (weak, nonatomic) IBOutlet UIImageView *calculatorCheck;
+@property (weak, nonatomic) IBOutlet UIImageView *noneCheck;
+@property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *allButtons;
 
 @end

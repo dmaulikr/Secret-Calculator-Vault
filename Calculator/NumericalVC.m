@@ -7,16 +7,11 @@
 //
 
 #import "NumericalVC.h"
+#import "SettingsManager.h"
 #import <AudioToolbox/AudioToolbox.h>
 
 @interface NumericalVC () <UITextViewDelegate>
-@property (weak, nonatomic) IBOutlet UILabel *instructionLabel;
-@property (weak, nonatomic) IBOutlet UILabel *firstDigit;
-@property (weak, nonatomic) IBOutlet UILabel *secondDigit;
-@property (weak, nonatomic) IBOutlet UILabel *thirdDigit;
-@property (weak, nonatomic) IBOutlet UILabel *fourthDigit;
-@property (weak, nonatomic) IBOutlet UITextView *digitInputTextView;
-@property (strong, nonatomic) Settings *settings;
+
 @end
 
 @implementation NumericalVC
@@ -24,20 +19,13 @@
 //Used to let the user create password
 static int createPasswordCount = 0;
 
--(Settings *)settings
-{
-    if(!_settings) _settings = [[Settings alloc] init];
-    return _settings;
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
-    if(self.changeLock){
-        [self.settings resetUserPassword];
+    if([SettingsManager sharedManager].changeVaultLock){
+        [[SettingsManager sharedManager] resetUserPassword];
     }
     
-    [self.settings retrievePassword];
-    if(self.settings.isPasswordCreated){
+    if([SettingsManager sharedManager].isPasswordCreated){
         self.instructionLabel.text = @"Enter Passcode";
     }
     else{
@@ -76,8 +64,8 @@ static int createPasswordCount = 0;
         self.thirdDigit.text = @"・";
         self.fourthDigit.text = @"・";
         
-        if(self.settings.isPasswordCreated && [self.settings unlockVault:self.digitInputTextView.text]){
-            if(self.lockVault){
+        if([SettingsManager sharedManager].isPasswordCreated && [[SettingsManager sharedManager] unlockVaultLock:self.digitInputTextView.text]){
+            if([SettingsManager sharedManager].lockVaultLock){
                 [self dismissViewControllerAnimated:YES completion:nil];
             }
             else {
@@ -85,8 +73,8 @@ static int createPasswordCount = 0;
             }
         }
         
-        else if(!self.settings.isPasswordCreated){
-            [self.settings createUserPassword:self.digitInputTextView.text];
+        else if(![SettingsManager sharedManager].isPasswordCreated){
+            [[SettingsManager sharedManager] createUserPassword:self.digitInputTextView.text];
             if (createPasswordCount == 0){
                 self.instructionLabel.text = @"Confirm Passcord";
                 self.digitInputTextView.text = @"";
@@ -96,10 +84,10 @@ static int createPasswordCount = 0;
                 self.fourthDigit.text = @"-";
                 createPasswordCount++;
             }
-            else if (createPasswordCount == 1 && self.settings.isPasswordCreated){
+            else if (createPasswordCount == 1 && [SettingsManager sharedManager].isPasswordCreated){
                 createPasswordCount++;
                 NSLog(@"Segue! password created");
-                if(self.changeLock){
+                if([SettingsManager sharedManager].changeVaultLock){
                     [self dismissViewControllerAnimated:YES completion:nil];
                 }
                 else {
@@ -117,8 +105,8 @@ static int createPasswordCount = 0;
                 self.secondDigit.text = @"-";
                 self.thirdDigit.text = @"-";
                 self.fourthDigit.text = @"-";
-                self.settings.isPasswordCreated = NO;
-                self.settings.userPassword = nil;
+                [SettingsManager sharedManager].isPasswordCreated = NO;
+                [SettingsManager sharedManager].userPassword = nil;
             }
         }
         

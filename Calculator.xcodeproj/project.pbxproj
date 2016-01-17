@@ -36,16 +36,16 @@
 		F3BAF5B51B9D1B2300C47EC4 /* WebBrowserVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F3BAF5B41B9D1B2300C47EC4 /* WebBrowserVC.m */; };
 		F3BF1CC51C460DA400EE9570 /* PasswordStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = F3BF1CC41C460DA400EE9570 /* PasswordStorage.m */; };
 		F3BF1CC91C460EF400EE9570 /* Calculator.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F3BF1CC61C460EF400EE9570 /* Calculator.xcdatamodeld */; };
+		F3BF1CDF1C4B203700EE9570 /* ViewContactVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F3BF1CDE1C4B203700EE9570 /* ViewContactVC.m */; };
+		F3BF1CE21C4B20F900EE9570 /* AddContactVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F3BF1CE11C4B20F900EE9570 /* AddContactVC.m */; };
+		F3BF1CE51C4B211900EE9570 /* ContactsTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F3BF1CE41C4B211900EE9570 /* ContactsTVC.m */; };
 		F3CBDA031B4CA00C0096F1AB /* Calculator.m in Sources */ = {isa = PBXBuildFile; fileRef = F3CBDA021B4CA00C0096F1AB /* Calculator.m */; };
 		F3CBDDFF1BC23D8D00910B81 /* Notes+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = F3CBDDFE1BC23D8D00910B81 /* Notes+CoreDataProperties.m */; };
 		F3CBDE021BC23F5B00910B81 /* ViewNoteVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F3CBDE011BC23F5B00910B81 /* ViewNoteVC.m */; };
 		F3D12FA81BBA014E00BA5005 /* Passwords+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = F3D12FA51BBA014E00BA5005 /* Passwords+CoreDataProperties.m */; };
 		F3D12FA91BBA014E00BA5005 /* Passwords.m in Sources */ = {isa = PBXBuildFile; fileRef = F3D12FA71BBA014E00BA5005 /* Passwords.m */; };
 		F3E15CB01C05A44900296B44 /* AlphabeticalVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F3E15CAF1C05A44900296B44 /* AlphabeticalVC.m */; };
-		F3EBBC5C1BACB6F600A71E4A /* ContactsTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F3EBBC5B1BACB6F600A71E4A /* ContactsTVC.m */; };
-		F3EBBC631BACC0DA00A71E4A /* ViewContactVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F3EBBC621BACC0DA00A71E4A /* ViewContactVC.m */; };
-		F3EBBC691BAE241900A71E4A /* Calculator in Sources */ = {isa = PBXBuildFile; fileRef = F3EBBC681BAE241900A71E4A /* Calculator */; };
-		F3EE2A0E1BFEBE16003BBD46 /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = F3EE2A0D1BFEBE16003BBD46 /* Settings.m */; };
+		F3EE2A0E1BFEBE16003BBD46 /* SettingsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F3EE2A0D1BFEBE16003BBD46 /* SettingsManager.m */; };
 		F3EE2A111BFEC786003BBD46 /* SecurityVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F3EE2A101BFEC786003BBD46 /* SecurityVC.m */; };
 		F3EE2A191BFED00E003BBD46 /* Alphabetical.m in Sources */ = {isa = PBXBuildFile; fileRef = F3EE2A181BFED00E003BBD46 /* Alphabetical.m */; };
 		F3EE2A1F1BFED048003BBD46 /* Numerical.m in Sources */ = {isa = PBXBuildFile; fileRef = F3EE2A1E1BFED048003BBD46 /* Numerical.m */; };
@@ -75,7 +75,6 @@
 		F30770E11B44BA2E0080EDD5 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		F30770E41B44BA2E0080EDD5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		F30770EA1B44BA2E0080EDD5 /* CalculatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CalculatorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		F30770EF1B44BA2E0080EDD5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F30770F01B44BA2E0080EDD5 /* CalculatorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CalculatorTests.m; sourceTree = "<group>"; };
 		F30DD06F1BBDC24C009EE47D /* Contacts+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Contacts+CoreDataProperties.h"; path = "Calculator/Contacts+CoreDataProperties.h"; sourceTree = "<group>"; };
 		F30DD0701BBDC24C009EE47D /* Contacts+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Contacts+CoreDataProperties.m"; path = "Calculator/Contacts+CoreDataProperties.m"; sourceTree = "<group>"; };
@@ -122,6 +121,12 @@
 		F3BF1CC41C460DA400EE9570 /* PasswordStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PasswordStorage.m; sourceTree = "<group>"; };
 		F3BF1CC71C460EF400EE9570 /* Calculator 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Calculator 2.xcdatamodel"; sourceTree = "<group>"; };
 		F3BF1CC81C460EF400EE9570 /* Calculator.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Calculator.xcdatamodel; sourceTree = "<group>"; };
+		F3BF1CDD1C4B202E00EE9570 /* ViewContactVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewContactVC.h; sourceTree = "<group>"; };
+		F3BF1CDE1C4B203700EE9570 /* ViewContactVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewContactVC.m; sourceTree = "<group>"; };
+		F3BF1CE01C4B20F900EE9570 /* AddContactVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddContactVC.h; path = ../Calculator/AddContactVC.h; sourceTree = "<group>"; };
+		F3BF1CE11C4B20F900EE9570 /* AddContactVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddContactVC.m; path = ../Calculator/AddContactVC.m; sourceTree = "<group>"; };
+		F3BF1CE31C4B211900EE9570 /* ContactsTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ContactsTVC.h; path = ../Calculator/ContactsTVC.h; sourceTree = "<group>"; };
+		F3BF1CE41C4B211900EE9570 /* ContactsTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ContactsTVC.m; path = ../Calculator/ContactsTVC.m; sourceTree = "<group>"; };
 		F3CBDA011B4CA00C0096F1AB /* Calculator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Calculator.h; path = ../Calculator/Calculator.h; sourceTree = "<group>"; };
 		F3CBDA021B4CA00C0096F1AB /* Calculator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Calculator.m; path = ../Calculator/Calculator.m; sourceTree = "<group>"; };
 		F3CBDDFD1BC23D8D00910B81 /* Notes+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Notes+CoreDataProperties.h"; path = "Calculator/Notes+CoreDataProperties.h"; sourceTree = "<group>"; };
@@ -134,14 +139,8 @@
 		F3D12FA71BBA014E00BA5005 /* Passwords.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Passwords.m; path = Calculator/Passwords.m; sourceTree = "<group>"; };
 		F3E15CAE1C05A44900296B44 /* AlphabeticalVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AlphabeticalVC.h; path = ../Calculator/AlphabeticalVC.h; sourceTree = "<group>"; };
 		F3E15CAF1C05A44900296B44 /* AlphabeticalVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AlphabeticalVC.m; path = ../Calculator/AlphabeticalVC.m; sourceTree = "<group>"; };
-		F3EBBC5A1BACB6F600A71E4A /* ContactsTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ContactsTVC.h; path = ../Calculator/ContactsTVC.h; sourceTree = "<group>"; };
-		F3EBBC5B1BACB6F600A71E4A /* ContactsTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ContactsTVC.m; path = ../Calculator/ContactsTVC.m; sourceTree = "<group>"; };
-		F3EBBC611BACC0DA00A71E4A /* ViewContactVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewContactVC.h; path = ../Calculator/ViewContactVC.h; sourceTree = "<group>"; };
-		F3EBBC621BACC0DA00A71E4A /* ViewContactVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewContactVC.m; path = ../Calculator/ViewContactVC.m; sourceTree = "<group>"; };
-		F3EBBC671BAE241900A71E4A /* Calculator */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = folder; name = Calculator; path = ../Calculator; sourceTree = "<group>"; };
-		F3EBBC681BAE241900A71E4A /* Calculator */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = folder; name = Calculator; path = ../Calculator; sourceTree = "<group>"; };
-		F3EE2A0C1BFEBE16003BBD46 /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Settings.h; path = ../Calculator/Settings.h; sourceTree = "<group>"; };
-		F3EE2A0D1BFEBE16003BBD46 /* Settings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Settings.m; path = ../Calculator/Settings.m; sourceTree = "<group>"; };
+		F3EE2A0C1BFEBE16003BBD46 /* SettingsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingsManager.h; path = ../Calculator/SettingsManager.h; sourceTree = "<group>"; };
+		F3EE2A0D1BFEBE16003BBD46 /* SettingsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingsManager.m; path = ../Calculator/SettingsManager.m; sourceTree = "<group>"; };
 		F3EE2A0F1BFEC786003BBD46 /* SecurityVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SecurityVC.h; path = ../Calculator/SecurityVC.h; sourceTree = "<group>"; };
 		F3EE2A101BFEC786003BBD46 /* SecurityVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SecurityVC.m; path = ../Calculator/SecurityVC.m; sourceTree = "<group>"; };
 		F3EE2A171BFED00E003BBD46 /* Alphabetical.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Alphabetical.h; path = ../Calculator/Alphabetical.h; sourceTree = "<group>"; };
@@ -230,7 +229,6 @@
 		F30770EE1B44BA2E0080EDD5 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				F30770EF1B44BA2E0080EDD5 /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -287,13 +285,13 @@
 			path = Calculator.xcodeproj;
 			sourceTree = SOURCE_ROOT;
 		};
-		F37673641BF10F6B00B1C0A4 /* Settings */ = {
+		F37673641BF10F6B00B1C0A4 /* SettingsManager */ = {
 			isa = PBXGroup;
 			children = (
-				F3EE2A0C1BFEBE16003BBD46 /* Settings.h */,
-				F3EE2A0D1BFEBE16003BBD46 /* Settings.m */,
+				F3EE2A0C1BFEBE16003BBD46 /* SettingsManager.h */,
+				F3EE2A0D1BFEBE16003BBD46 /* SettingsManager.m */,
 			);
-			name = Settings;
+			name = SettingsManager;
 			sourceTree = "<group>";
 		};
 		F39136A91BF94E4D00ACF081 /* Notes */ = {
@@ -357,7 +355,7 @@
 				F39136AB1BF94E7500ACF081 /* Contacts */,
 				F39136A91BF94E4D00ACF081 /* Notes */,
 				F34C901F1BF3E42B00F3F953 /* Photo */,
-				F37673641BF10F6B00B1C0A4 /* Settings */,
+				F37673641BF10F6B00B1C0A4 /* SettingsManager */,
 			);
 			name = Model;
 			path = ../Calculator.xcodeproj;
@@ -402,12 +400,12 @@
 		F3EBBC5D1BACB91600A71E4A /* Contacts */ = {
 			isa = PBXGroup;
 			children = (
-				F3EBBC5A1BACB6F600A71E4A /* ContactsTVC.h */,
-				F3EBBC5B1BACB6F600A71E4A /* ContactsTVC.m */,
-				F3EBBC671BAE241900A71E4A /* Calculator */,
-				F3EBBC681BAE241900A71E4A /* Calculator */,
-				F3EBBC611BACC0DA00A71E4A /* ViewContactVC.h */,
-				F3EBBC621BACC0DA00A71E4A /* ViewContactVC.m */,
+				F3BF1CE31C4B211900EE9570 /* ContactsTVC.h */,
+				F3BF1CE41C4B211900EE9570 /* ContactsTVC.m */,
+				F3BF1CE01C4B20F900EE9570 /* AddContactVC.h */,
+				F3BF1CE11C4B20F900EE9570 /* AddContactVC.m */,
+				F3BF1CDD1C4B202E00EE9570 /* ViewContactVC.h */,
+				F3BF1CDE1C4B203700EE9570 /* ViewContactVC.m */,
 			);
 			name = Contacts;
 			sourceTree = "<group>";
@@ -550,12 +548,12 @@
 				F38614DE1BE55C04000363EF /* Photo.m in Sources */,
 				F3CBDE021BC23F5B00910B81 /* ViewNoteVC.m in Sources */,
 				F3EE2A191BFED00E003BBD46 /* Alphabetical.m in Sources */,
-				F3EBBC5C1BACB6F600A71E4A /* ContactsTVC.m in Sources */,
 				F30770DD1B44BA2E0080EDD5 /* CalculatorVC.m in Sources */,
+				F3BF1CE51C4B211900EE9570 /* ContactsTVC.m in Sources */,
+				F3BF1CDF1C4B203700EE9570 /* ViewContactVC.m in Sources */,
 				F385EF951BDAA55800A0FC90 /* ViewPhotoVC.m in Sources */,
 				F30DD0741BBDC24C009EE47D /* Contacts.m in Sources */,
-				F3EE2A0E1BFEBE16003BBD46 /* Settings.m in Sources */,
-				F3EBBC631BACC0DA00A71E4A /* ViewContactVC.m in Sources */,
+				F3EE2A0E1BFEBE16003BBD46 /* SettingsManager.m in Sources */,
 				F3D12FA91BBA014E00BA5005 /* Passwords.m in Sources */,
 				F39136A51BF94E2900ACF081 /* ContactStorage.m in Sources */,
 				F3E15CB01C05A44900296B44 /* AlphabeticalVC.m in Sources */,
@@ -575,13 +573,13 @@
 				F34C90121BF3063000F3F953 /* PhotoStorage.m in Sources */,
 				F3BF1CC51C460DA400EE9570 /* PasswordStorage.m in Sources */,
 				F3973CBE1BB315EB00DCA383 /* NotesTVC.m in Sources */,
+				F3BF1CE21C4B20F900EE9570 /* AddContactVC.m in Sources */,
 				F3973CB51BB3155900DCA383 /* AddPasswordVC.m in Sources */,
 				F3BAF5B51B9D1B2300C47EC4 /* WebBrowserVC.m in Sources */,
 				F3BF1CC91C460EF400EE9570 /* Calculator.xcdatamodeld in Sources */,
 				F34C901E1BF3BFF300F3F953 /* Album+methods.m in Sources */,
 				F39136A21BF94D3E00ACF081 /* NoteStorage.m in Sources */,
 				F3EE2A1F1BFED048003BBD46 /* Numerical.m in Sources */,
-				F3EBBC691BAE241900A71E4A /* Calculator in Sources */,
 				F3D12FA81BBA014E00BA5005 /* Passwords+CoreDataProperties.m in Sources */,
 				F3FB78571BCDABDD005DFEFF /* PhotoTVC.m in Sources */,
 			);

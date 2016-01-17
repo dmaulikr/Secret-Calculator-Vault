@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -2086,12 +2086,12 @@
                                 <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                                 <color key="backgroundColor" red="0.73725490196078436" green="0.73725490196078436" blue="0.76078431372549016" alpha="1" colorSpace="calibratedRGB"/>
                             </webView>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="QVI-ng-vDT">
+                            <searchBar contentMode="redraw" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QVI-ng-vDT">
                                 <rect key="frame" x="68" y="20" width="532" height="44"/>
                                 <color key="backgroundColor" red="0.91514756939999997" green="0.91514756939999997" blue="0.91514756939999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="webSearch" returnKeyType="search"/>
                             </searchBar>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qcW-Sw-GjL">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qcW-Sw-GjL">
                                 <rect key="frame" x="10" y="29" width="25" height="25"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" image="Back Arrow"/>
@@ -2099,7 +2099,7 @@
                                     <action selector="backButton:" destination="hOT-t7-Lh0" eventType="touchUpInside" id="Wvg-14-Ah7"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dnj-n1-Hyh">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dnj-n1-Hyh">
                                 <rect key="frame" x="43" y="29" width="25" height="25"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" image="Front Arrow">
@@ -2640,6 +2640,12 @@
                         <outlet property="noneCheck" destination="rqO-Yy-RJP" id="InT-RO-InT"/>
                         <outlet property="numericalCheck" destination="ZE9-qn-uKq" id="iJe-du-nCH"/>
                         <outlet property="patternCheck" destination="v7B-jw-xyJ" id="YHM-T2-LWY"/>
+                        <outletCollection property="allButtons" destination="uNr-bC-sJk" id="Pbm-nv-sZY"/>
+                        <outletCollection property="allButtons" destination="UI6-7b-cdJ" id="b8Q-Dr-HbV"/>
+                        <outletCollection property="allButtons" destination="vgD-rc-Lqh" id="tys-rX-5Ba"/>
+                        <outletCollection property="allButtons" destination="O7h-mb-9yh" id="SJt-pc-r19"/>
+                        <outletCollection property="allButtons" destination="VO3-U8-7vl" id="UIs-Ks-gWR"/>
+                        <outletCollection property="allButtons" destination="8ay-c7-ENk" id="3gu-WZ-V6f"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TDD-at-dUj" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2940,9 +2946,9 @@
         <image name="subtractionButton" width="1024" height="768"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="IY2-jM-3i4"/>
         <segue reference="wJQ-lv-Nxe"/>
-        <segue reference="a8p-d0-N0P"/>
+        <segue reference="K8k-Zd-RQW"/>
         <segue reference="inA-Bw-Tia"/>
+        <segue reference="a8p-d0-N0P"/>
     </inferredMetricsTieBreakers>
 </document>

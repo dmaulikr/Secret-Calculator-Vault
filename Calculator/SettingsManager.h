@@ -8,18 +8,20 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Settings : NSObject
+@interface SettingsManager : NSObject
 
-@property (strong, nonatomic) NSString *currentLock;
++ (SettingsManager *)sharedManager;
+
 @property (strong, nonatomic) NSString *userPassword;
+@property (nonatomic) int currentLock;
 @property (nonatomic) BOOL isPasswordCreated;
+@property (nonatomic) BOOL changeVaultLock;
+@property (nonatomic) BOOL lockVaultLock;
 
 
--(BOOL)unlockVault:(NSString *)input;
+-(BOOL)unlockVaultLock:(NSString *)input;
+-(void)setVaultLockType:(NSString *)vaultLockType;
 -(void)createUserPassword:(NSString *)input;
 -(void)resetUserPassword;
--(void)retrievePassword;
--(void)retrieveCurrentLock;
--(void)setLock:(NSString *)lockType;
 
 @end

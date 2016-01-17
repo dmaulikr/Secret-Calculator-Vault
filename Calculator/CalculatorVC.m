@@ -6,47 +6,14 @@
 //  Copyright (c) 2015 Corey Allen Pett. All rights reserved.
 //
 
+#import <AudioToolbox/AudioToolbox.h>
 #import "CalculatorVC.h"
 #import "Calculator.h"
-#import "Settings.h"
-#import <AudioToolbox/AudioToolbox.h>
+#import "SettingsManager.h"
 
 @interface CalculatorVC ()
-@property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *allButtons;
-
-@property (weak, nonatomic) IBOutlet UILabel *clickMeLabel;
-@property (weak, nonatomic) IBOutlet UILabel *calculatorOutputLabel;
-
-@property (weak, nonatomic) IBOutlet UIButton *divisionButton;
-@property (weak, nonatomic) IBOutlet UIButton *multiplicationButton;
-@property (weak, nonatomic) IBOutlet UIButton *subtractionButton;
-@property (weak, nonatomic) IBOutlet UIButton *additionButton;
-@property (weak, nonatomic) IBOutlet UIButton *equalsButton;
-
-@property (weak, nonatomic) IBOutlet UIButton *percentageButton;
-@property (weak, nonatomic) IBOutlet UIButton *clearOutputButton;
-@property (weak, nonatomic) IBOutlet UIButton *switchSignButton;
-
-@property (weak, nonatomic) IBOutlet UIButton *decimalButton;
-@property (weak, nonatomic) IBOutlet UIButton *zeroButton;
-@property (weak, nonatomic) IBOutlet UIButton *oneButton;
-@property (weak, nonatomic) IBOutlet UIButton *twoButton;
-@property (weak, nonatomic) IBOutlet UIButton *threeButton;
-@property (weak, nonatomic) IBOutlet UIButton *fourButton;
-@property (weak, nonatomic) IBOutlet UIButton *fiveButton;
-@property (weak, nonatomic) IBOutlet UIButton *sixButton;
-@property (weak, nonatomic) IBOutlet UIButton *sevenButton;
-@property (weak, nonatomic) IBOutlet UIButton *eightButton;
-@property (weak, nonatomic) IBOutlet UIButton *nineButton;
-
-//Needed to not highlight button
-@property (nonatomic) BOOL boolAdditionButton;
-@property (nonatomic) BOOL boolSubtractionButton;
-@property (nonatomic) BOOL boolDivisionButton;
-@property (nonatomic) BOOL boolMultiplicationButton;
 
 @property (strong, nonatomic) Calculator *calculator;
-@property (strong, nonatomic) Settings *settings;
 
 @end
 
@@ -55,18 +22,43 @@
 //Used to let the user create password
 static int createPasswordCount = 0;
 
-//Create calculator object
--(Calculator *) calculator
+- (void)viewDidLoad
 {
-    if(!_calculator) _calculator = [[Calculator alloc] init];
-    return _calculator;
+    [super viewDidLoad];
+    
+    //Darken all the buttons when pressed
+    for (UIButton *button in self.allButtons){
+        [button setBackgroundImage:[self imageWithColor:[UIColor colorWithWhite:0.0 alpha:0.1]] forState:UIControlStateHighlighted];
+    }
+    
+    //Used to help user create his/her password
+    if ([SettingsManager sharedManager].changeVaultLock){
+        [[SettingsManager sharedManager] resetUserPassword];
+    }
+    if(![SettingsManager sharedManager].isPasswordCreated) {
+        createPasswordCount = 0;
+        self.calculatorOutputLabel.text = @"Choose Password";
+        UIAlertController * alert=   [UIAlertController
+                                      alertControllerWithTitle:@"Instructions"
+                                      message:@"Type in a password then press '%' to continue. \n\n Once password is confirmed, you will use '%' to unlock your secret folder."
+                                      preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"I UNDERSTAND" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action)
+                                       {
+                                           
+                                       }];
+        [alert addAction:cancelAction];
+        [self presentViewController:alert animated:YES completion:nil];
+    }
+    else {
+        self.clickMeLabel.hidden = YES;
+    }
 }
 
-//Create a settings object
--(Settings *)settings
+- (void)didReceiveMemoryWarning
 {
-    if(!_settings) _settings = [[Settings alloc] init];
-    return _settings;
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
 
 //The operators on the calculator
@@ -91,15 +83,16 @@ static int createPasswordCount = 0;
 - (IBAction)percentage:(UIButton *)sender
 {
     //The if the password on the calculator is not set, let user create one logic
-    if (!self.settings.isPasswordCreated){
-        [self.settings createUserPassword:self.calculator.outputAsString];
+    //ISPASSWORDCREATED???
+    if ([SettingsManager sharedManager].isPasswordCreated){
+        [[SettingsManager sharedManager] createUserPassword:self.calculator.outputAsString];
         [self.calculator clearCalculator];
         if (createPasswordCount == 0){
             self.calculatorOutputLabel.text = @"Confirm Password";
             createPasswordCount++;
         }
-        else if (createPasswordCount == 1 && self.settings.isPasswordCreated) {
-            if(self.changeLock){
+        else if (createPasswordCount == 1 && [SettingsManager sharedManager].isPasswordCreated) {
+            if([SettingsManager sharedManager].changeVaultLock){
                 [self dismissViewControllerAnimated:YES completion:nil];
             }
             else{
@@ -113,13 +106,13 @@ static int createPasswordCount = 0;
             self.calculatorOutputLabel.text = @"Incorrect - Try Again";
             createPasswordCount = 0;
             [self.calculator clearCalculator];
-            self.settings.isPasswordCreated = NO;
-            self.settings.userPassword = nil;
+            [SettingsManager sharedManager].isPasswordCreated = NO;
+            [SettingsManager sharedManager].userPassword = nil;
         }
     }
-    else if (self.settings.isPasswordCreated && [self.settings unlockVault:self.calculator.outputAsString]) {
+    else if ([[SettingsManager sharedManager] unlockVaultLock:self.calculator.outputAsString]) {
         self.clickMeLabel.hidden = YES;
-        if(self.lockVault){
+        if([SettingsManager sharedManager].lockVaultLock){
             [self dismissViewControllerAnimated:YES completion:nil];
         }
         else {
@@ -391,43 +384,11 @@ static int createPasswordCount = 0;
     return image;
 }
 
-- (void)viewDidLoad
+//Create calculator object
+-(Calculator *) calculator
 {
-    [super viewDidLoad];
-    
-    //Darken all the buttons when pressed
-    for (UIButton *button in self.allButtons){
-        [button setBackgroundImage:[self imageWithColor:[UIColor colorWithWhite:0.0 alpha:0.1]] forState:UIControlStateHighlighted];
-    }
-    
-    //Used to help user create his/her password
-    [self.settings retrievePassword];
-    if (self.changeLock){
-        [self.settings resetUserPassword];
-    }
-    if(!self.settings.isPasswordCreated) {
-        createPasswordCount = 0;
-        self.calculatorOutputLabel.text = @"Choose Password";
-        UIAlertController * alert=   [UIAlertController
-                                      alertControllerWithTitle:@"Instructions"
-                                      message:@"Type in a password then press '%' to continue. \n\n Once password is confirmed, you will use '%' to unlock your secret folder."
-                                      preferredStyle:UIAlertControllerStyleAlert];
-        
-        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"I UNDERSTAND" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action)
-                                       {
-                                           
-                                       }];
-        [alert addAction:cancelAction];
-        [self presentViewController:alert animated:YES completion:nil];
-    }
-    else {
-        self.clickMeLabel.hidden = YES;
-    }
+    if(!_calculator) _calculator = [[Calculator alloc] init];
+    return _calculator;
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 @end

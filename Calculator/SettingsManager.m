@@ -6,9 +6,19 @@
 //  Copyright © 2015 Corey Allen Pett. All rights reserved.
 //
 
-#import "Settings.h"
+#import "SettingsManager.h"
 
-@implementation Settings
+@implementation SettingsManager
+
++ (SettingsManager *)sharedManager
+{
+    static SettingsManager *_manager = nil;
+    static dispatch_once_t oncePredicate;
+    dispatch_once(&oncePredicate, ^{
+        _manager = [[self alloc] init];
+    });
+    return _manager;
+}
 
 //Create user password
 -(void)createUserPassword:(NSString *)input
@@ -24,8 +34,12 @@
             [[NSUserDefaults standardUserDefaults]setValue:self.userPassword forKey:@"password"];
             [[NSUserDefaults standardUserDefaults] synchronize];
         }
+//        else {
+//            self.userPassword = nil;
+//        }
     }
 }
+
 
 -(void)resetUserPassword
 {
@@ -36,7 +50,7 @@
 
 
 //Allow access to the users vault
--(BOOL)unlockVault:(NSString *)input
+-(BOOL)unlockVaultLock:(NSString *)input
 {
     if([self.userPassword isEqualToString:input]){
         return YES;
@@ -47,7 +61,7 @@
 }
 
 //Check if password is set and retrieve it
--(void)retrievePassword
+-(void)retrieveUserPassword
 {
     self.userPassword = [[NSUserDefaults standardUserDefaults] stringForKey:@"password"];
     if(!self.userPassword) {
@@ -61,35 +75,50 @@
 //Check was lock is selected
 -(void)retrieveCurrentLock
 {
-    self.currentLock = [[NSUserDefaults standardUserDefaults] stringForKey:@"currentLock"];
+    self.currentLock = [[NSUserDefaults standardUserDefaults] integerForKey:@"currentLock"];
+    // Set lock to calculator if no lock chosen
     if(!self.currentLock){
-        self.currentLock = @"calculatorLock";
-        [[NSUserDefaults standardUserDefaults]setValue:self.currentLock forKey:@"currentLock"];
+        self.currentLock = 0;
+        [[NSUserDefaults standardUserDefaults]setInteger:self.currentLock forKey:@"currentLock"];
         [[NSUserDefaults standardUserDefaults] synchronize];
     }
 }
 
+
 //Set lock based on users selection in settings
--(void)setLock:(NSString *)lockType
+-(void)setVaultLockType:(NSString *)vaultLockType
 {
-    if([lockType isEqualToString:@"alphabeticalButton"]){
-        self.currentLock = @"alphabeticalLock";
+    if([vaultLockType isEqualToString:@"calculatorButton"]){
+        self.currentLock = 0;
     }
-    if([lockType isEqualToString:@"numericalButton"]){
-        self.currentLock = @"numericalLock";
+    if([vaultLockType isEqualToString:@"alphabeticalButton"]){
+        self.currentLock = 1;
     }
-    if([lockType isEqualToString:@"patternButton"]){
-        self.currentLock = @"patternLock";
+    if([vaultLockType isEqualToString:@"numericalButton"]){
+        self.currentLock = 2;
     }
-    if([lockType isEqualToString:@"calculatorButton"]){
-        self.currentLock = @"calculatorLock";
+    if([vaultLockType isEqualToString:@"patternButton"]){
+        self.currentLock = 3;;
     }
-    if ([lockType isEqualToString:@"noneButton"]) {
-        self.currentLock = @"none";
+    if ([vaultLockType isEqualToString:@"noneButton"]) {
+        self.currentLock = 4;;
     }
-    
-    [[NSUserDefaults standardUserDefaults]setValue:self.currentLock forKey:@"currentLock"];
+    //Save
+    [[NSUserDefaults standardUserDefaults]setInteger:self.currentLock forKey:@"currentLock"];
     [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+-(NSString *)userPassword
+{
+    if(!_userPassword) _userPassword = [[NSString alloc] init];
+    [self retrieveUserPassword];
+    return _userPassword;
+}
+
+-(int)currentLock
+{
+    [self retrieveCurrentLock];
+    return self.currentLock;
 }
 
 @end

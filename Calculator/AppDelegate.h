@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
+@class SettingsManager;
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 

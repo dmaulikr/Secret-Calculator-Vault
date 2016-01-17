@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+@class SettingsManager;
 
 @interface PatternVC : UIViewController {
     NSMutableArray* _paths;

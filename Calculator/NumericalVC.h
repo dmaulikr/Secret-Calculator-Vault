@@ -7,12 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Settings.h"
+@class SettingsManager;
 
 @interface NumericalVC : UIViewController
 
-@property (nonatomic) BOOL changeLock;
-@property (nonatomic) BOOL lockVault;
-
+@property (weak, nonatomic) IBOutlet UILabel *instructionLabel;
+@property (weak, nonatomic) IBOutlet UILabel *firstDigit;
+@property (weak, nonatomic) IBOutlet UILabel *secondDigit;
+@property (weak, nonatomic) IBOutlet UILabel *thirdDigit;
+@property (weak, nonatomic) IBOutlet UILabel *fourthDigit;
+@property (weak, nonatomic) IBOutlet UITextView *digitInputTextView;
 
 @end

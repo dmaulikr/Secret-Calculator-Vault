@@ -7,6 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+@class SettingsManager;
+@class CalculatorVC;
+@class NumericalVC;
+@class AlphabeticalVC;
+@class PatternVC;
 
 @interface SettingsVC : UIViewController
 
