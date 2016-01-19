@@ -8,6 +8,7 @@
 
 #import "ViewContactVC.h"
 #import "AddContactVC.h"
+#import "ContactStorage.h"
 #import <MessageUI/MessageUI.h>
 
 @interface ViewContactVC () <MFMailComposeViewControllerDelegate>
@@ -154,6 +155,7 @@
 {
     [self.navigationController popViewControllerAnimated:YES];
 }
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation

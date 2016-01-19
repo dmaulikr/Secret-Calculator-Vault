@@ -15,15 +15,12 @@
 @property (weak, nonatomic) IBOutlet UITextField *firstNameTextfield;
 @property (weak, nonatomic) IBOutlet UITextField *lastNameTextfield;
 @property (weak, nonatomic) IBOutlet UITextField *companyTextfield;
-
 @property (weak, nonatomic) IBOutlet UITextField *mobileNumberTextfield;
 @property (weak, nonatomic) IBOutlet UITextField *homeNumberTextfield;
 @property (weak, nonatomic) IBOutlet UITextField *workNumberTextfield;
-
 @property (weak, nonatomic) IBOutlet UITextField *emailTextfield;
 @property (weak, nonatomic) IBOutlet UITextField *webpageTextfield;
 @property (weak, nonatomic) IBOutlet UITextField *notesTextfield;
-
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *saveButton;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
@@ -147,14 +144,14 @@
     //Save user contact information when user is editing a current contact
     if(self.contactStorage.selectedContact){
         [self.contactStorage saveContact:self.firstNameTextfield.text
-                                  lastName:self.lastNameTextfield.text
-                                   company:self.companyTextfield.text
-                              mobileNumber:self.mobileNumberTextfield.text
-                                homeNumber:self.homeNumberTextfield.text
-                                workNumber:self.workNumberTextfield.text
-                                     email:self.emailTextfield.text
-                                     notes:self.notesTextfield.text
-                                   website:self.webpageTextfield.text];
+                                lastName:self.lastNameTextfield.text
+                                 company:self.companyTextfield.text
+                            mobileNumber:self.mobileNumberTextfield.text
+                              homeNumber:self.homeNumberTextfield.text
+                              workNumber:self.workNumberTextfield.text
+                                   email:self.emailTextfield.text
+                                   notes:self.notesTextfield.text
+                                 website:self.webpageTextfield.text];
     }
     
     //If user is not editing a current contact, create new contact
@@ -216,3 +213,4 @@
 }
 
 @end
+

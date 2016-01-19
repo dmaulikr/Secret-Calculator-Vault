@@ -8,6 +8,7 @@
 
 #import "ContactsTVC.h"
 #import "ViewContactVC.h"
+#import "ContactStorage.h"
 
 @interface ContactsTVC ()
 

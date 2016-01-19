@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ContactStorage.h"
 #import "Contacts+CoreDataProperties.h"
+@class ContactStorage;
 
 @interface ContactsTVC : UITableViewController
 
