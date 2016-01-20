@@ -34,10 +34,12 @@
 		F3973CB81BB3158400DCA383 /* ViewPasswordVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F3973CB71BB3158400DCA383 /* ViewPasswordVC.m */; };
 		F3973CBE1BB315EB00DCA383 /* NotesTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F3973CBD1BB315EB00DCA383 /* NotesTVC.m */; };
 		F3973CC11BB33BB600DCA383 /* Notes.m in Sources */ = {isa = PBXBuildFile; fileRef = F3973CC01BB33BB600DCA383 /* Notes.m */; };
+		F3A120781C50218600AC2597 /* CalculatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F364BF7B1C5020D5005E832E /* CalculatorTests.m */; };
 		F3BAF5B51B9D1B2300C47EC4 /* WebBrowserVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F3BAF5B41B9D1B2300C47EC4 /* WebBrowserVC.m */; };
 		F3BF1CC51C460DA400EE9570 /* PasswordStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = F3BF1CC41C460DA400EE9570 /* PasswordStorage.m */; };
 		F3BF1CC91C460EF400EE9570 /* Calculator.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F3BF1CC61C460EF400EE9570 /* Calculator.xcdatamodeld */; };
 		F3BF1CE51C4B211900EE9570 /* ContactsTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F3BF1CE41C4B211900EE9570 /* ContactsTVC.m */; };
+		F3CBD5651C50296100037CF2 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F3CBD5641C50296100037CF2 /* Info.plist */; };
 		F3CBDA031B4CA00C0096F1AB /* Calculator.m in Sources */ = {isa = PBXBuildFile; fileRef = F3CBDA021B4CA00C0096F1AB /* Calculator.m */; };
 		F3CBDDFF1BC23D8D00910B81 /* Notes+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = F3CBDDFE1BC23D8D00910B81 /* Notes+CoreDataProperties.m */; };
 		F3CBDE021BC23F5B00910B81 /* ViewNoteVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F3CBDE011BC23F5B00910B81 /* ViewNoteVC.m */; };
@@ -65,7 +67,6 @@
 
 /* Begin PBXFileReference section */
 		F30770D11B44BA2E0080EDD5 /* Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Calculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		F30770D51B44BA2E0080EDD5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F30770D61B44BA2E0080EDD5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F30770D81B44BA2E0080EDD5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F30770D91B44BA2E0080EDD5 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -90,6 +91,7 @@
 		F34C901A1BF3297D00F3F953 /* Album.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Album.m; path = Calculator/Album.m; sourceTree = "<group>"; };
 		F34C901C1BF3BFF300F3F953 /* Album+methods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Album+methods.h"; path = "Calculator/Album+methods.h"; sourceTree = "<group>"; };
 		F34C901D1BF3BFF300F3F953 /* Album+methods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Album+methods.m"; path = "Calculator/Album+methods.m"; sourceTree = "<group>"; };
+		F364BF7B1C5020D5005E832E /* CalculatorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CalculatorTests.m; path = Calculator/CalculatorTests.m; sourceTree = SOURCE_ROOT; };
 		F37673601BF10EEC00B1C0A4 /* SettingsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingsVC.h; path = ../Calculator/SettingsVC.h; sourceTree = "<group>"; };
 		F37673611BF10EEC00B1C0A4 /* SettingsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingsVC.m; path = ../Calculator/SettingsVC.m; sourceTree = "<group>"; };
 		F385EF931BDAA55800A0FC90 /* ViewPhotoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewPhotoVC.h; path = Calculator/ViewPhotoVC.h; sourceTree = SOURCE_ROOT; };
@@ -125,6 +127,7 @@
 		F3BF1CC81C460EF400EE9570 /* Calculator.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Calculator.xcdatamodel; sourceTree = "<group>"; };
 		F3BF1CE31C4B211900EE9570 /* ContactsTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ContactsTVC.h; path = ../Calculator/ContactsTVC.h; sourceTree = "<group>"; };
 		F3BF1CE41C4B211900EE9570 /* ContactsTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ContactsTVC.m; path = ../Calculator/ContactsTVC.m; sourceTree = "<group>"; };
+		F3CBD5641C50296100037CF2 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F3CBDA011B4CA00C0096F1AB /* Calculator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Calculator.h; path = ../Calculator/Calculator.h; sourceTree = "<group>"; };
 		F3CBDA021B4CA00C0096F1AB /* Calculator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Calculator.m; path = ../Calculator/Calculator.m; sourceTree = "<group>"; };
 		F3CBDDFD1BC23D8D00910B81 /* Notes+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Notes+CoreDataProperties.h"; path = "Calculator/Notes+CoreDataProperties.h"; sourceTree = "<group>"; };
@@ -209,8 +212,8 @@
 				F30770E31B44BA2E0080EDD5 /* LaunchScreen.xib */,
 				F38DF78E1C0787A300C82A64 /* Main.storyboard */,
 				F30770E11B44BA2E0080EDD5 /* Images.xcassets */,
-				F30770D51B44BA2E0080EDD5 /* Info.plist */,
 				F30770D61B44BA2E0080EDD5 /* main.m */,
+				F3CBD5641C50296100037CF2 /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -218,6 +221,7 @@
 		F30770ED1B44BA2E0080EDD5 /* CalculatorTests */ = {
 			isa = PBXGroup;
 			children = (
+				F364BF7B1C5020D5005E832E /* CalculatorTests.m */,
 				F30770EE1B44BA2E0080EDD5 /* Supporting Files */,
 			);
 			path = CalculatorTests;
@@ -518,6 +522,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3CBD5651C50296100037CF2 /* Info.plist in Resources */,
 				F38DF7901C0787A300C82A64 /* Main.storyboard in Resources */,
 				F30770E51B44BA2E0080EDD5 /* LaunchScreen.xib in Resources */,
 				F30770E21B44BA2E0080EDD5 /* Images.xcassets in Resources */,
@@ -586,6 +591,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3A120781C50218600AC2597 /* CalculatorTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -711,6 +717,7 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_NO_COMMON_BLOCKS = NO;
 				INFOPLIST_FILE = Calculator/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.CalculatorSecret;
@@ -727,6 +734,7 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_NO_COMMON_BLOCKS = NO;
 				INFOPLIST_FILE = Calculator/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.CalculatorSecret;
@@ -747,7 +755,7 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = CalculatorTests/Info.plist;
+				INFOPLIST_FILE = Calculator/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -763,7 +771,7 @@
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = CalculatorTests/Info.plist;
+				INFOPLIST_FILE = Calculator/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
