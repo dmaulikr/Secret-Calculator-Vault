@@ -35,12 +35,12 @@ static int createPasswordCount = 0;
     if ([SettingsManager sharedManager].changeVaultLock){
         [[SettingsManager sharedManager] resetUserPassword];
     }
-    if(![SettingsManager sharedManager].isPasswordCreated) {
+    if(![SettingsManager sharedManager].userPassword) {
         createPasswordCount = 0;
         self.calculatorOutputLabel.text = @"Choose Password";
         UIAlertController * alert=   [UIAlertController
                                       alertControllerWithTitle:@"Instructions"
-                                      message:@"Type in a password then press '%' to continue. \n\n Once password is confirmed, you will use '%' to unlock your secret folder."
+                                      message:@"Type in a password then press '%' to continue. \n\n Once password is confirmed, you will use '%' to gain access to your secret folder."
                                       preferredStyle:UIAlertControllerStyleAlert];
         
         UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"I UNDERSTAND" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action)
@@ -84,7 +84,7 @@ static int createPasswordCount = 0;
 {
     //The if the password on the calculator is not set, let user create one logic
     //ISPASSWORDCREATED???
-    if ([SettingsManager sharedManager].isPasswordCreated){
+    if (![SettingsManager sharedManager].isPasswordCreated){
         [[SettingsManager sharedManager] createUserPassword:self.calculator.outputAsString];
         [self.calculator clearCalculator];
         if (createPasswordCount == 0){

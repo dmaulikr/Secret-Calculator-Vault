@@ -60,29 +60,29 @@
     }
 }
 
-//Check if password is set and retrieve it
--(void)retrieveUserPassword
-{
-    self.userPassword = [[NSUserDefaults standardUserDefaults] stringForKey:@"password"];
-    if(!self.userPassword) {
-        self.isPasswordCreated = NO;
-    }
-    else {
-        self.isPasswordCreated = YES;
-    }
-}
+////Check if password is set and retrieve it
+//-(void)retrieveUserPassword
+//{
+//    self.userPassword = [[NSUserDefaults standardUserDefaults] stringForKey:@"password"];
+//    if(!self.userPassword) {
+//        self.isPasswordCreated = NO;
+//    }
+//    else {
+//        self.isPasswordCreated = YES;
+//    }
+//}
 
-//Check was lock is selected
--(void)retrieveCurrentLock
-{
-    self.currentLock = [[NSUserDefaults standardUserDefaults] integerForKey:@"currentLock"];
-    // Set lock to calculator if no lock chosen
-    if(!self.currentLock){
-        self.currentLock = 0;
-        [[NSUserDefaults standardUserDefaults]setInteger:self.currentLock forKey:@"currentLock"];
-        [[NSUserDefaults standardUserDefaults] synchronize];
-    }
-}
+////Check was lock is selected
+//-(void)retrieveCurrentLock
+//{
+//    self.currentLock = [[NSUserDefaults standardUserDefaults] integerForKey:@"currentLock"];
+//    // Set lock to calculator if no lock chosen
+//    if(!self.currentLock){
+//        self.currentLock = 0;
+//        [[NSUserDefaults standardUserDefaults]setInteger:self.currentLock forKey:@"currentLock"];
+//        [[NSUserDefaults standardUserDefaults] synchronize];
+//    }
+//}
 
 
 //Set lock based on users selection in settings
@@ -110,15 +110,20 @@
 
 -(NSString *)userPassword
 {
-    if(!_userPassword) _userPassword = [[NSString alloc] init];
-    [self retrieveUserPassword];
-    return _userPassword;
+    _userPassword = [[NSUserDefaults standardUserDefaults] stringForKey:@"password"];
+    if(!_userPassword) {
+        self.isPasswordCreated = NO;
+    }
+    else {
+        self.isPasswordCreated = YES;
+    }
+    return  _userPassword;
 }
 
 -(int)currentLock
 {
-    [self retrieveCurrentLock];
-    return self.currentLock;
+    _currentLock = [[NSUserDefaults standardUserDefaults] integerForKey:@"currentLock"];
+    return _currentLock;
 }
 
 @end
