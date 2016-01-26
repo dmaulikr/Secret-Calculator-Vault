@@ -1,4 +1,4 @@
-//
+                    //
 //  ViewController.m
 //  Calculator
 //
@@ -83,48 +83,67 @@ static int createPasswordCount = 0;
 - (IBAction)percentage:(UIButton *)sender
 {
     //The if the password on the calculator is not set, let user create one logic
-    //ISPASSWORDCREATED???
-    if (![SettingsManager sharedManager].isPasswordCreated){
-        [[SettingsManager sharedManager] createUserPassword:self.calculator.outputAsString];
-        [self.calculator clearCalculator];
-        if (createPasswordCount == 0){
-            self.calculatorOutputLabel.text = @"Confirm Password";
-            createPasswordCount++;
-        }
-        else if (createPasswordCount == 1 && [SettingsManager sharedManager].isPasswordCreated) {
-            if([SettingsManager sharedManager].changeVaultLock){
-                [self dismissViewControllerAnimated:YES completion:nil];
-            }
-            else{
-                self.clickMeLabel.hidden = YES;
-                self.calculatorOutputLabel.text = @"Enjoy :)";
-                createPasswordCount++;
-            }
-        }
-        else {
-            AudioServicesPlayAlertSound(kSystemSoundID_Vibrate);
-            self.calculatorOutputLabel.text = @"Incorrect - Try Again";
-            createPasswordCount = 0;
+    CreatePassword state;
+    if (![SettingsManager sharedManager].isPasswordCreated)
+        state = [SettingsManager sharedManager].passwordState;
+    else
+        state = 2;
+    
+    switch (state) {
+        case createPassword:
+        {
+            //Start creation of user password
+            [[SettingsManager sharedManager] createUserPassword:self.calculator.outputAsString];
             [self.calculator clearCalculator];
-            [SettingsManager sharedManager].isPasswordCreated = NO;
-            [SettingsManager sharedManager].userPassword = nil;
+            self.calculatorOutputLabel.text = @"Confirm Password";
+            break;
         }
-    }
-    else if ([[SettingsManager sharedManager] unlockVaultLock:self.calculator.outputAsString]) {
-        self.clickMeLabel.hidden = YES;
-        if([SettingsManager sharedManager].lockVaultLock){
-            [self dismissViewControllerAnimated:YES completion:nil];
+            
+        case confirmPassword:
+        {
+            [[SettingsManager sharedManager] createUserPassword:self.calculator.outputAsString];
+            //Correct confirmation
+            if([SettingsManager sharedManager].isPasswordCreated) {
+                if([SettingsManager sharedManager].changeVaultLock){
+                    [self dismissViewControllerAnimated:YES completion:nil];
+                }
+                else{
+                    [self.calculator clearCalculator];
+                    self.clickMeLabel.hidden = YES;
+                    self.calculatorOutputLabel.text = @"Enjoy :)";
+                }
+            }
+            //Incorrect confirmation
+            else {
+                AudioServicesPlayAlertSound(kSystemSoundID_Vibrate);
+                [self.calculator clearCalculator];
+                self.calculatorOutputLabel.text = @"Incorrect - Try again";
+            }
+            break;
         }
-        else {
-            [self performSegueWithIdentifier:@"UnlockCalculatorVault" sender:self];
+            
+        case createdPassword:
+        {
+            //Access vault
+            if ([[SettingsManager sharedManager] unlockVaultLock:self.calculator.outputAsString]) {
+                if([SettingsManager sharedManager].lockVaultLock){
+                    [self dismissViewControllerAnimated:YES completion:nil];
+                }
+                else {
+                    [self performSegueWithIdentifier:@"UnlockCalculatorVault" sender:self];
+                }
+            }
+            //Calculator act normal
+            else {
+                [self.calculator concatDecimal:1
+                            isOperatorSelected:[self anyOperatorsSelected]];
+                [self updateUI];
+            }
+            break;
         }
-    }
-    else {
-        [self.calculator concatDecimal:1
-                    isOperatorSelected:[self anyOperatorsSelected]];
-        [self updateUI];
     }
 }
+
 
 //"/" Button
 - (IBAction)divide:(UIButton *)sender

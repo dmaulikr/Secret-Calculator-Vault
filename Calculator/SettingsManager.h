@@ -14,7 +14,10 @@
 
 @property (strong, nonatomic) NSString *userPassword;
 @property (nonatomic) int currentLock;
+@property (nonatomic) int passwordState;
 @property (nonatomic) BOOL isPasswordCreated;
+
+
 @property (nonatomic) BOOL changeVaultLock;
 @property (nonatomic) BOOL lockVaultLock;
 
@@ -23,5 +26,19 @@
 -(void)setVaultLockType:(NSString *)vaultLockType;
 -(void)createUserPassword:(NSString *)input;
 -(void)resetUserPassword;
+
+typedef enum {
+    calculatorLock = 0,
+    alphabeticalLock,
+    numericalLock,
+    patternLock,
+    none
+} SetLockTypes;
+
+typedef enum {
+    createPassword = 0,
+    confirmPassword,
+    createdPassword,
+} CreatePassword;
 
 @end

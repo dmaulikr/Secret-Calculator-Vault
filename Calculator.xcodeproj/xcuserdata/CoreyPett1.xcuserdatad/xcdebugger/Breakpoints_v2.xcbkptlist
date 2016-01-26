@@ -6,15 +6,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Calculator/CalculatorVC.m"
-            timestampString = "475030245.192761"
+            timestampString = "475032156.998681"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "87"
-            endingLineNumber = "87"
+            startingLineNumber = "83"
+            endingLineNumber = "83"
             landmarkName = "-percentage:"
             landmarkType = "5">
          </BreakpointContent>
@@ -26,12 +26,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Calculator/SettingsManager.m"
-            timestampString = "475030345.217799"
+            timestampString = "475088369.056678"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "113"
-            endingLineNumber = "113"
-            landmarkName = "-userPassword"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
+            landmarkName = "-createUserPassword:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

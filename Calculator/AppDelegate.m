@@ -24,7 +24,7 @@ static int i = 0;
     self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     UIViewController *viewController = [[UIViewController alloc] init];
-    lockTypes = [SettingsManager sharedManager].currentLock;
+    SetLockTypes lockTypes = [SettingsManager sharedManager].currentLock;
     switch (lockTypes)
     {
         case calculatorLock:
@@ -115,15 +115,6 @@ static int i = 0;
     i++;
     NSLog(@"%d", i++);
 }
-    
-enum lockTypes
-{
-    calculatorLock = 0,
-    alphabeticalLock,
-    numericalLock,
-    patternLock,
-    none
-}lockTypes;
 
 #pragma mark - Core Data stack
 

@@ -33,7 +33,7 @@
     self.calculatorCheck.hidden = YES;
     self.noneCheck.hidden = YES;
     
-    lockTypes = [SettingsManager sharedManager].currentLock;
+    SetLockTypes lockTypes = [SettingsManager sharedManager].currentLock;
     switch (lockTypes)
     {
         case calculatorLock:
@@ -67,15 +67,6 @@
         }
     }
 }
-    
-enum lockTypes
-{
-    calculatorLock = 0,
-    alphabeticalLock,
-    numericalLock,
-    patternLock,
-    none
-}lockTypes;
 
 - (void)didReceiveMemoryWarning
 {
@@ -137,7 +128,7 @@ enum lockTypes
 {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     UIViewController *viewController = [[UIViewController alloc] init];
-    lockTypes = [SettingsManager sharedManager].currentLock;
+    SetLockTypes lockTypes = [SettingsManager sharedManager].currentLock;
     switch (lockTypes)
     {
         case calculatorLock:

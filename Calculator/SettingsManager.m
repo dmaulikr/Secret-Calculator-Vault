@@ -26,18 +26,26 @@
     //Set user password
     if (!self.userPassword) {
         self.userPassword = input;
+        self.passwordState = 1;
+        self.isPasswordCreated = NO;
     }
     //Confirm user password
     else if (self.userPassword){
         if([self.userPassword isEqualToString:input]) {
             self.isPasswordCreated = YES;
+            self.passwordState = 2;
             [[NSUserDefaults standardUserDefaults]setValue:self.userPassword forKey:@"password"];
             [[NSUserDefaults standardUserDefaults] synchronize];
         }
-//        else {
-//            self.userPassword = nil;
-//        }
+        //Incorrect confirmation
+        else {
+            self.userPassword = nil;
+            self.isPasswordCreated = NO;
+            self.passwordState = 0;
+        }
     }
+    [[NSUserDefaults standardUserDefaults] setInteger:_passwordState forKey:@"passwordState"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 
@@ -59,31 +67,6 @@
         return NO;
     }
 }
-
-////Check if password is set and retrieve it
-//-(void)retrieveUserPassword
-//{
-//    self.userPassword = [[NSUserDefaults standardUserDefaults] stringForKey:@"password"];
-//    if(!self.userPassword) {
-//        self.isPasswordCreated = NO;
-//    }
-//    else {
-//        self.isPasswordCreated = YES;
-//    }
-//}
-
-////Check was lock is selected
-//-(void)retrieveCurrentLock
-//{
-//    self.currentLock = [[NSUserDefaults standardUserDefaults] integerForKey:@"currentLock"];
-//    // Set lock to calculator if no lock chosen
-//    if(!self.currentLock){
-//        self.currentLock = 0;
-//        [[NSUserDefaults standardUserDefaults]setInteger:self.currentLock forKey:@"currentLock"];
-//        [[NSUserDefaults standardUserDefaults] synchronize];
-//    }
-//}
-
 
 //Set lock based on users selection in settings
 -(void)setVaultLockType:(NSString *)vaultLockType
@@ -108,22 +91,22 @@
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
--(NSString *)userPassword
-{
-    _userPassword = [[NSUserDefaults standardUserDefaults] stringForKey:@"password"];
-    if(!_userPassword) {
-        self.isPasswordCreated = NO;
-    }
-    else {
-        self.isPasswordCreated = YES;
-    }
-    return  _userPassword;
-}
-
 -(int)currentLock
 {
+    //Grab all of the data
     _currentLock = [[NSUserDefaults standardUserDefaults] integerForKey:@"currentLock"];
+    _passwordState = [[NSUserDefaults standardUserDefaults] integerForKey:@"passwordState"];
+    _userPassword = [[NSUserDefaults standardUserDefaults] stringForKey:@"password"];
+    if(!_userPassword) self.isPasswordCreated = NO;
+    if(_userPassword) self.isPasswordCreated = YES;
     return _currentLock;
+}
+
+-(int)passwordState
+{
+    _passwordState = [[NSUserDefaults standardUserDefaults] integerForKey:@"passwordState"];
+    NSLog(@"state = %d", _passwordState);
+    return _passwordState;
 }
 
 @end

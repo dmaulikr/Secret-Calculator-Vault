@@ -35,7 +35,7 @@
 {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     UIViewController *viewController = [[UIViewController alloc] init];
-    lockTypes = [SettingsManager sharedManager].currentLock;
+    SetLockTypes lockTypes = [SettingsManager sharedManager].currentLock;
     switch (lockTypes)
     {
         case calculatorLock:
@@ -78,15 +78,5 @@
     [self presentViewController:viewController animated:YES completion:nil];
     
 }
-
-enum lockTypes
-{
-    calculatorLock = 0,
-    alphabeticalLock,
-    numericalLock,
-    patternLock,
-    none
-}lockTypes;
-
 
 @end
