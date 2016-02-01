@@ -33,6 +33,7 @@
     else if (self.userPassword){
         if([self.userPassword isEqualToString:input]) {
             self.isPasswordCreated = YES;
+            self.changeVaultLock = NO;
             self.passwordState = 2;
             [[NSUserDefaults standardUserDefaults]setValue:self.userPassword forKey:@"password"];
             [[NSUserDefaults standardUserDefaults] synchronize];
@@ -44,15 +45,19 @@
             self.passwordState = 0;
         }
     }
+    //Save
     [[NSUserDefaults standardUserDefaults] setInteger:_passwordState forKey:@"passwordState"];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
-
+//Reset multiple items including user password
 -(void)resetUserPassword
 {
+    self.passwordState = 0;
     self.isPasswordCreated = NO;
+    self.userPassword = nil;
     [[NSUserDefaults standardUserDefaults] setValue:nil forKey:@"password"];
+    [[NSUserDefaults standardUserDefaults] setInteger:0 forKey:@"passwordState"];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
@@ -87,7 +92,7 @@
         self.currentLock = 4;;
     }
     //Save
-    [[NSUserDefaults standardUserDefaults]setInteger:self.currentLock forKey:@"currentLock"];
+    [[NSUserDefaults standardUserDefaults]setInteger:_currentLock forKey:@"currentLock"];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
@@ -97,6 +102,9 @@
     _currentLock = [[NSUserDefaults standardUserDefaults] integerForKey:@"currentLock"];
     _passwordState = [[NSUserDefaults standardUserDefaults] integerForKey:@"passwordState"];
     _userPassword = [[NSUserDefaults standardUserDefaults] stringForKey:@"password"];
+    NSLog(@"user password = %@", _userPassword);
+    NSLog(@"current lock = %d", _currentLock);
+    NSLog(@"password state = %d", _passwordState);
     if(!_userPassword) self.isPasswordCreated = NO;
     if(_userPassword) self.isPasswordCreated = YES;
     return _currentLock;
@@ -105,8 +113,16 @@
 -(int)passwordState
 {
     _passwordState = [[NSUserDefaults standardUserDefaults] integerForKey:@"passwordState"];
-    NSLog(@"state = %d", _passwordState);
+    NSLog(@"password state = %d", _passwordState);
     return _passwordState;
+}
+
+-(void)setChangeVaultLock:(BOOL)changeVaultLock
+{
+    _changeVaultLock = changeVaultLock;
+    if (_changeVaultLock) {
+        [self resetUserPassword];
+    }
 }
 
 @end

@@ -39,7 +39,6 @@
 		F3BF1CC51C460DA400EE9570 /* PasswordStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = F3BF1CC41C460DA400EE9570 /* PasswordStorage.m */; };
 		F3BF1CC91C460EF400EE9570 /* Calculator.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F3BF1CC61C460EF400EE9570 /* Calculator.xcdatamodeld */; };
 		F3BF1CE51C4B211900EE9570 /* ContactsTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F3BF1CE41C4B211900EE9570 /* ContactsTVC.m */; };
-		F3CBD5651C50296100037CF2 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F3CBD5641C50296100037CF2 /* Info.plist */; };
 		F3CBDA031B4CA00C0096F1AB /* Calculator.m in Sources */ = {isa = PBXBuildFile; fileRef = F3CBDA021B4CA00C0096F1AB /* Calculator.m */; };
 		F3CBDDFF1BC23D8D00910B81 /* Notes+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = F3CBDDFE1BC23D8D00910B81 /* Notes+CoreDataProperties.m */; };
 		F3CBDE021BC23F5B00910B81 /* ViewNoteVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F3CBDE011BC23F5B00910B81 /* ViewNoteVC.m */; };
@@ -179,6 +178,7 @@
 			children = (
 				F3405C371BA746B500042B5D /* CalculatorCoreData */,
 				F30770D31B44BA2E0080EDD5 /* SecretPhotoVault */,
+				F30770D41B44BA2E0080EDD5 /* Supporting Files */,
 				F30770ED1B44BA2E0080EDD5 /* CalculatorTests */,
 				F30770D21B44BA2E0080EDD5 /* Products */,
 			);
@@ -198,7 +198,6 @@
 			children = (
 				F3CBDA051B4CA0580096F1AB /* View Controllers */,
 				F3CBDA041B4CA0220096F1AB /* Model */,
-				F30770D41B44BA2E0080EDD5 /* Supporting Files */,
 			);
 			name = SecretPhotoVault;
 			path = Calculator;
@@ -216,6 +215,7 @@
 				F3CBD5641C50296100037CF2 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			path = Calculator;
 			sourceTree = "<group>";
 		};
 		F30770ED1B44BA2E0080EDD5 /* CalculatorTests */ = {
@@ -485,7 +485,7 @@
 		F30770C91B44BA2E0080EDD5 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "Corey Allen Pett";
 				TargetAttributes = {
 					F30770D01B44BA2E0080EDD5 = {
@@ -522,7 +522,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F3CBD5651C50296100037CF2 /* Info.plist in Resources */,
 				F38DF7901C0787A300C82A64 /* Main.storyboard in Resources */,
 				F30770E51B44BA2E0080EDD5 /* LaunchScreen.xib in Resources */,
 				F30770E21B44BA2E0080EDD5 /* Images.xcassets in Resources */,

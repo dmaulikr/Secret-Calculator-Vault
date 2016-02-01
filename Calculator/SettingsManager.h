@@ -16,8 +16,6 @@
 @property (nonatomic) int currentLock;
 @property (nonatomic) int passwordState;
 @property (nonatomic) BOOL isPasswordCreated;
-
-
 @property (nonatomic) BOOL changeVaultLock;
 @property (nonatomic) BOOL lockVaultLock;
 

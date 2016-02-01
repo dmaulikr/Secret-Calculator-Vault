@@ -19,25 +19,9 @@
 
 @implementation CalculatorVC
 
-//Used to let the user create password
-static int createPasswordCount = 0;
-
-- (void)viewDidLoad
+-(void)viewDidAppear:(BOOL)animated
 {
-    [super viewDidLoad];
-    
-    //Darken all the buttons when pressed
-    for (UIButton *button in self.allButtons){
-        [button setBackgroundImage:[self imageWithColor:[UIColor colorWithWhite:0.0 alpha:0.1]] forState:UIControlStateHighlighted];
-    }
-    
-    //Used to help user create his/her password
-    if ([SettingsManager sharedManager].changeVaultLock){
-        [[SettingsManager sharedManager] resetUserPassword];
-    }
     if(![SettingsManager sharedManager].userPassword) {
-        createPasswordCount = 0;
-        self.calculatorOutputLabel.text = @"Choose Password";
         UIAlertController * alert=   [UIAlertController
                                       alertControllerWithTitle:@"Instructions"
                                       message:@"Type in a password then press '%' to continue. \n\n Once password is confirmed, you will use '%' to gain access to your secret folder."
@@ -49,6 +33,18 @@ static int createPasswordCount = 0;
                                        }];
         [alert addAction:cancelAction];
         [self presentViewController:alert animated:YES completion:nil];
+    }
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    //Darken all the buttons when pressed
+    for (UIButton *button in self.allButtons){
+        [button setBackgroundImage:[self imageWithColor:[UIColor colorWithWhite:0.0 alpha:0.1]] forState:UIControlStateHighlighted];
+    }
+    if(![SettingsManager sharedManager].userPassword) {
+        self.calculatorOutputLabel.text = @"Choose Password";
     }
     else {
         self.clickMeLabel.hidden = YES;
@@ -83,13 +79,14 @@ static int createPasswordCount = 0;
 - (IBAction)percentage:(UIButton *)sender
 {
     //The if the password on the calculator is not set, let user create one logic
-    CreatePassword state;
+    CreatePassword passwordState;
     if (![SettingsManager sharedManager].isPasswordCreated)
-        state = [SettingsManager sharedManager].passwordState;
+        passwordState = [SettingsManager sharedManager].passwordState;
     else
-        state = 2;
+        passwordState = 2;
     
-    switch (state) {
+    switch (passwordState) {
+        //Create a new password
         case createPassword:
         {
             //Start creation of user password
@@ -98,7 +95,7 @@ static int createPasswordCount = 0;
             self.calculatorOutputLabel.text = @"Confirm Password";
             break;
         }
-            
+        //Confirm new password
         case confirmPassword:
         {
             [[SettingsManager sharedManager] createUserPassword:self.calculator.outputAsString];
@@ -121,19 +118,21 @@ static int createPasswordCount = 0;
             }
             break;
         }
-            
+        //Password is created
         case createdPassword:
         {
-            //Access vault
+            //Correct Password
             if ([[SettingsManager sharedManager] unlockVaultLock:self.calculator.outputAsString]) {
+                //Segue back to settings
                 if([SettingsManager sharedManager].lockVaultLock){
                     [self dismissViewControllerAnimated:YES completion:nil];
                 }
+                //Segue to vault
                 else {
                     [self performSegueWithIdentifier:@"UnlockCalculatorVault" sender:self];
                 }
             }
-            //Calculator act normal
+            //Incorrect Password
             else {
                 [self.calculator concatDecimal:1
                             isOperatorSelected:[self anyOperatorsSelected]];
