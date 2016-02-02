@@ -17,11 +17,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     //Center webview on the scrollview
-    [[self.webPage scrollView] setContentInset:UIEdgeInsetsMake(-20, 0, 0, 0)];
+    [[self.webPage scrollView] setContentInset:UIEdgeInsetsMake(64, 0, 0, 0)];
     
-    self.webPage.delegate = self;
-    self.webPage.scalesPageToFit = YES;
-    self.addressBar.delegate = self;
     self.addressBar.placeholder = @"Enter website name";
     self.addressBar.autocapitalizationType = NO;
     
@@ -48,7 +45,7 @@
     [self.webPage goForward];
 }
 
-//When user presses return, goes to user selected website
+//When user presses return, webpage is navigated to user selected website
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
     NSString *newWebsite = [NSString stringWithFormat:@"https://%@", self.addressBar.text];

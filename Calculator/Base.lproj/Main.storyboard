@@ -1310,8 +1310,8 @@
                         <segue destination="F79-fK-CJy" kind="relationship" relationship="viewControllers" id="TQ1-Nr-vAh"/>
                         <segue destination="kJc-iC-h6o" kind="relationship" relationship="viewControllers" id="C3z-27-NY6"/>
                         <segue destination="ngc-Iw-VCB" kind="relationship" relationship="viewControllers" id="nwS-qT-u8o"/>
-                        <segue destination="BVd-OF-MKP" kind="relationship" relationship="viewControllers" id="S2Q-34-NYR"/>
                         <segue destination="hOT-t7-Lh0" kind="relationship" relationship="viewControllers" id="HWl-Ju-abW"/>
+                        <segue destination="BVd-OF-MKP" kind="relationship" relationship="viewControllers" id="S2Q-34-NYR"/>
                         <segue destination="Vo7-W9-8vM" kind="relationship" relationship="viewControllers" id="16f-Em-nf1"/>
                     </connections>
                 </tabBarController>
@@ -2083,51 +2083,86 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" scalesPageToFit="YES" paginationMode="topToBottom" translatesAutoresizingMaskIntoConstraints="NO" id="Opi-Qg-b4C">
-                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" red="0.73725490196078436" green="0.73725490196078436" blue="0.76078431372549016" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <outlet property="delegate" destination="hOT-t7-Lh0" id="VAt-75-tyX"/>
+                                </connections>
                             </webView>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="QVI-ng-vDT">
-                                <rect key="frame" x="68" y="20" width="532" height="44"/>
-                                <color key="backgroundColor" red="0.91514756939999997" green="0.91514756939999997" blue="0.91514756939999997" alpha="1" colorSpace="calibratedRGB"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="webSearch" returnKeyType="search"/>
-                            </searchBar>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qcW-Sw-GjL">
-                                <rect key="frame" x="10" y="29" width="25" height="25"/>
-                                <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal" image="Back Arrow"/>
-                                <connections>
-                                    <action selector="backButton:" destination="hOT-t7-Lh0" eventType="touchUpInside" id="Wvg-14-Ah7"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dnj-n1-Hyh">
-                                <rect key="frame" x="43" y="29" width="25" height="25"/>
-                                <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal" image="Front Arrow">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="forwardButton:" destination="hOT-t7-Lh0" eventType="touchUpInside" id="Mll-FD-kyD"/>
-                                </connections>
-                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7LH-1n-TuN">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="67"/>
+                                <subviews>
+                                    <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="QVI-ng-vDT">
+                                        <rect key="frame" x="68" y="23" width="532" height="44"/>
+                                        <color key="backgroundColor" red="0.91514756939999997" green="0.91514756939999997" blue="0.91514756939999997" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="asi-6J-4JT"/>
+                                            <constraint firstAttribute="width" constant="532" id="duk-83-QFp"/>
+                                        </constraints>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="webSearch" returnKeyType="search"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="hOT-t7-Lh0" id="DsB-f7-iHK"/>
+                                        </connections>
+                                    </searchBar>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qcW-Sw-GjL">
+                                        <rect key="frame" x="8" y="32" width="25" height="25"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="25" id="HVs-qJ-zi0"/>
+                                            <constraint firstAttribute="height" constant="25" id="PeN-UG-t1S"/>
+                                        </constraints>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        <state key="normal" image="Back Arrow"/>
+                                        <connections>
+                                            <action selector="backButton:" destination="hOT-t7-Lh0" eventType="touchUpInside" id="Wvg-14-Ah7"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dnj-n1-Hyh">
+                                        <rect key="frame" x="33" y="32" width="25" height="25"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="25" id="JkC-qg-EZI"/>
+                                            <constraint firstAttribute="width" constant="25" id="yOd-1G-q1D"/>
+                                        </constraints>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        <state key="normal" image="Front Arrow">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="forwardButton:" destination="hOT-t7-Lh0" eventType="touchUpInside" id="Mll-FD-kyD"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.77917749780000001" green="0.78091581489999995" blue="0.80744229980000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="600" id="0rP-vS-0MR"/>
+                                    <constraint firstAttribute="trailing" secondItem="QVI-ng-vDT" secondAttribute="trailing" id="2lv-Pz-9db"/>
+                                    <constraint firstItem="dnj-n1-Hyh" firstAttribute="leading" secondItem="qcW-Sw-GjL" secondAttribute="trailing" id="3Ai-b6-CPp"/>
+                                    <constraint firstItem="qcW-Sw-GjL" firstAttribute="leading" secondItem="7LH-1n-TuN" secondAttribute="leading" constant="8" id="3fv-tf-LWv"/>
+                                    <constraint firstItem="qcW-Sw-GjL" firstAttribute="centerY" secondItem="QVI-ng-vDT" secondAttribute="centerY" id="7n0-MI-0CT"/>
+                                    <constraint firstItem="QVI-ng-vDT" firstAttribute="leading" secondItem="dnj-n1-Hyh" secondAttribute="trailing" constant="10" id="Gmn-i2-wQ5"/>
+                                    <constraint firstItem="QVI-ng-vDT" firstAttribute="top" secondItem="7LH-1n-TuN" secondAttribute="top" constant="23" id="NvF-U8-Lq3"/>
+                                    <constraint firstAttribute="height" constant="67" id="UpR-Ox-s3U"/>
+                                    <constraint firstItem="dnj-n1-Hyh" firstAttribute="centerY" secondItem="QVI-ng-vDT" secondAttribute="centerY" id="slt-lD-Bg8"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.77917749775854861" green="0.78091581489648976" blue="0.80744229983660132" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="Opi-Qg-b4C" firstAttribute="top" secondItem="qcW-Sw-GjL" secondAttribute="bottom" constant="8" symbolic="YES" id="4gv-it-LOY"/>
-                            <constraint firstItem="QVI-ng-vDT" firstAttribute="leading" secondItem="dnj-n1-Hyh" secondAttribute="trailing" id="DUg-3u-Kis"/>
-                            <constraint firstAttribute="trailing" secondItem="QVI-ng-vDT" secondAttribute="trailing" id="H1X-zc-5es"/>
-                            <constraint firstItem="QVI-ng-vDT" firstAttribute="top" secondItem="5Mc-TK-tu2" secondAttribute="bottom" id="Jh1-JK-AfP"/>
-                            <constraint firstItem="dnj-n1-Hyh" firstAttribute="leading" secondItem="qcW-Sw-GjL" secondAttribute="trailing" constant="8" symbolic="YES" id="KDr-JZ-Qct"/>
-                            <constraint firstItem="Opi-Qg-b4C" firstAttribute="leading" secondItem="V02-Ld-Xzd" secondAttribute="leading" id="PS3-1k-tyl"/>
-                            <constraint firstItem="QVI-ng-vDT" firstAttribute="centerY" secondItem="dnj-n1-Hyh" secondAttribute="centerY" id="ROI-FW-jBc"/>
-                            <constraint firstItem="dnj-n1-Hyh" firstAttribute="top" secondItem="qcW-Sw-GjL" secondAttribute="top" id="T0m-rq-6bZ"/>
-                            <constraint firstItem="qcW-Sw-GjL" firstAttribute="leading" secondItem="V02-Ld-Xzd" secondAttribute="leadingMargin" constant="-10" id="Yy4-Bm-Ywa"/>
-                            <constraint firstItem="QVI-ng-vDT" firstAttribute="trailing" secondItem="Opi-Qg-b4C" secondAttribute="trailing" id="hk0-bZ-gfw"/>
-                            <constraint firstItem="Opi-Qg-b4C" firstAttribute="top" secondItem="QVI-ng-vDT" secondAttribute="bottom" id="mgW-eL-L73"/>
-                            <constraint firstItem="Opi-Qg-b4C" firstAttribute="bottom" secondItem="Acc-tq-9PR" secondAttribute="top" id="pm6-Fj-kLX"/>
+                            <constraint firstAttribute="trailing" secondItem="Opi-Qg-b4C" secondAttribute="trailing" id="91Q-2e-b9N"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="7LH-1n-TuN" secondAttribute="trailing" constant="-20" id="D9H-QI-ZHy"/>
+                            <constraint firstItem="7LH-1n-TuN" firstAttribute="top" secondItem="5Mc-TK-tu2" secondAttribute="bottom" constant="-20" id="NCI-e5-Twq"/>
+                            <constraint firstItem="Opi-Qg-b4C" firstAttribute="leading" secondItem="7LH-1n-TuN" secondAttribute="leading" id="RgG-Zu-duW"/>
+                            <constraint firstItem="Opi-Qg-b4C" firstAttribute="top" secondItem="V02-Ld-Xzd" secondAttribute="top" id="Yih-vh-8Th"/>
+                            <constraint firstItem="Opi-Qg-b4C" firstAttribute="trailing" secondItem="7LH-1n-TuN" secondAttribute="trailing" id="Z3x-RW-NMT"/>
+                            <constraint firstItem="Opi-Qg-b4C" firstAttribute="leading" secondItem="V02-Ld-Xzd" secondAttribute="leading" id="bJ5-be-hCp"/>
+                            <constraint firstItem="7LH-1n-TuN" firstAttribute="leading" secondItem="V02-Ld-Xzd" secondAttribute="leadingMargin" constant="-20" id="txZ-cw-UzW"/>
+                            <constraint firstItem="7LH-1n-TuN" firstAttribute="leading" secondItem="Opi-Qg-b4C" secondAttribute="trailing" constant="-600" id="wRz-EM-uQS"/>
+                            <constraint firstAttribute="bottom" secondItem="Opi-Qg-b4C" secondAttribute="bottom" id="y63-Iw-ZjI"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="4gv-it-LOY"/>
+                                <exclude reference="wRz-EM-uQS"/>
+                                <exclude reference="RgG-Zu-duW"/>
+                                <exclude reference="Z3x-RW-NMT"/>
                             </mask>
                         </variation>
                     </view>
@@ -2139,7 +2174,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sFT-UA-ieF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="228" y="-712"/>
+            <point key="canvasLocation" x="228" y="-711"/>
         </scene>
         <!--SettingsVC-->
         <scene sceneID="G91-43-3z4">
