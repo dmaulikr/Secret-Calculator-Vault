@@ -11,20 +11,20 @@ Future Features:
 
   -Dot Connection lock
   
-  -4 digit lock
+  -4 digit lock [COMPLETED]
   
-  -Any length lock
+  -Any length lock [COMPLETED]
   
 2. Capability to store more types of your information such as files
 
-3. Add a "Settings" tab
+3. Add a "Settings" tab [COMPLETED]
 
-  -Ability to change password
+  -Ability to change password [COMPLETED]
   
-  -Ability to change type of lock
+  -Ability to change type of lock [COMPLETED]
   
 4. Photos tab will allow to add more than one photo.
 
 5. Performance and memory management
 
-I would absolutely love feedback.
+I love feedback.
