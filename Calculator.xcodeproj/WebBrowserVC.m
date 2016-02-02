@@ -10,9 +10,6 @@
 
 @interface WebBrowserVC () <UISearchBarDelegate, UIScrollViewDelegate, UIWebViewDelegate>
 
-@property (strong, nonatomic) IBOutlet UIWebView *webPage;
-@property (weak, nonatomic) IBOutlet UISearchBar *addressBar;
-
 @end
 
 @implementation WebBrowserVC

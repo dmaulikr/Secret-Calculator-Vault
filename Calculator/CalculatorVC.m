@@ -121,7 +121,7 @@
         //Password is created
         case createdPassword:
         {
-            //Correct Password
+            //Correct password
             if ([[SettingsManager sharedManager] unlockVaultLock:self.calculator.outputAsString]) {
                 //Segue back to settings
                 if([SettingsManager sharedManager].lockVaultLock){
@@ -132,7 +132,7 @@
                     [self performSegueWithIdentifier:@"UnlockCalculatorVault" sender:self];
                 }
             }
-            //Incorrect Password
+            //Incorrect password
             else {
                 [self.calculator concatDecimal:1
                             isOperatorSelected:[self anyOperatorsSelected]];

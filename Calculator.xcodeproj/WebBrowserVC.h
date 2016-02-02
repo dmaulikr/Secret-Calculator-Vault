@@ -10,5 +10,7 @@
 
 @interface WebBrowserVC : UIViewController
 
+@property (strong, nonatomic) IBOutlet UIWebView *webPage;
+@property (weak, nonatomic) IBOutlet UISearchBar *addressBar;
 
 @end
