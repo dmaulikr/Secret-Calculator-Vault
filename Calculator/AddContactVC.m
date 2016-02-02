@@ -12,18 +12,6 @@
 
 @interface AddContactVC () <UITextFieldDelegate, UIScrollViewDelegate>
 
-@property (weak, nonatomic) IBOutlet UITextField *firstNameTextfield;
-@property (weak, nonatomic) IBOutlet UITextField *lastNameTextfield;
-@property (weak, nonatomic) IBOutlet UITextField *companyTextfield;
-@property (weak, nonatomic) IBOutlet UITextField *mobileNumberTextfield;
-@property (weak, nonatomic) IBOutlet UITextField *homeNumberTextfield;
-@property (weak, nonatomic) IBOutlet UITextField *workNumberTextfield;
-@property (weak, nonatomic) IBOutlet UITextField *emailTextfield;
-@property (weak, nonatomic) IBOutlet UITextField *webpageTextfield;
-@property (weak, nonatomic) IBOutlet UITextField *notesTextfield;
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *saveButton;
-@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
-
 @end
 
 @implementation AddContactVC

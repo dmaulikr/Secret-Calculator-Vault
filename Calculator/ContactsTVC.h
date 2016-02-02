@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Contacts+CoreDataProperties.h"
 @class ContactStorage;
+@class ViewContactVC;
 
 @interface ContactsTVC : UITableViewController
 
